@@ -1,1 +1,21 @@
-<p>usuarios works!</p>
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">Username</th>
+    <th scope="col">Password</th>
+    <th scope="col">Email</th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let usuario of usuarios">
+    <td>{{usuario.username}}</td>
+    <td>{{usuario.password}}</td>
+    <td>{{usuario.email}}</td>
+    <td>
+      <button class="btn btn-danger me-2" (click)="borrar(usuario.id)">Borrar</button>
+      <button class="btn btn-primary">Modificar</button>
+    </td>
+  </tr>
+  </tbody>
+</table>
