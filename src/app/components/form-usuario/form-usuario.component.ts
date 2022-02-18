@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
 import {Usuario, UsuariosService} from "../../services/usuarios.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-usuario',
@@ -18,7 +18,7 @@ export class FormUsuarioComponent implements OnInit {
   }
   id: string | null = null
 
-  constructor(private usuarioService: UsuariosService, private ruta: ActivatedRoute) {
+  constructor(private usuarioService: UsuariosService, private ruta: ActivatedRoute,private router:Router) {
     this.init()
   }
 
@@ -43,6 +43,7 @@ export class FormUsuarioComponent implements OnInit {
     else{
       this.usuarioService.add(this.#usuario)
     }
+    this.router.navigate(['usuarios'])
   }
 
 

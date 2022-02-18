@@ -9,7 +9,7 @@ import {FormUsuarioComponent} from "./components/form-usuario/form-usuario.compo
 const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'usuarios', component: UsuariosComponent },
-  { path: 'usuario/form',component:FormUsuarioComponent},
+  { path: 'usuarios/form',component:FormUsuarioComponent},
   { path: '**', pathMatch: 'full', redirectTo: 'clientes' }
 ];
 
