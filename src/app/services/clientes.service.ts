@@ -24,7 +24,8 @@ export class ClientesService {
     this.http.get(this.#endpoint)
       .subscribe((data: any) => {
         this.#clientes = data;
-        // console.log(this.#clientes);        
+        console.log(this.#clientes[0]);
+        this.#clientes[0]
       });
 
   }
@@ -60,16 +61,19 @@ export class ClientesService {
   }
 
   deleteClienteById(id: number){
-
-    this.http.get(`${this.#endpoint}/${id}`)
+    
+    this.http.delete(`${this.#endpoint}/${id}`)
       .subscribe((data: any) => {
-        this.#clientes = data;
-        console.log(this.#clientes);        
+        this.getAllCliente();
+      }, (error) =>{
+        console.log(error);
       });
 
   }
 
+
   // Getters
+
   get Clientes(): any[]{
     
     return this.#clientes;

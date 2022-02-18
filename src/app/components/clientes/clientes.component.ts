@@ -23,6 +23,15 @@ export class ClientesComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  deleteClientById(id: number){
+    
+    this._clientesService.deleteClienteById(id);
+
+  }
+
+
+  // Getters
+
   get Clientes(){
 
     return this._clientesService.Clientes;
