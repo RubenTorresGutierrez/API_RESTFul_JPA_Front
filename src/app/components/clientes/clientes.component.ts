@@ -1,5 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from "@angular/common/http";
+import { ActivatedRoute } from "@angular/router";
 
+// Services
+import { ClientesService } from '../../services/clientes.service';
 // Components
 import { TablaComponent } from '../shared/tabla/tabla.component';
 
@@ -10,9 +14,19 @@ import { TablaComponent } from '../shared/tabla/tabla.component';
 })
 export class ClientesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private _clientesService: ClientesService) { 
+
+    this._clientesService.getAllCliente();
+
+  }
 
   ngOnInit(): void {
+  }
+
+  get Clientes(){
+
+    return this._clientesService.Clientes;
+
   }
 
 }

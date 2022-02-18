@@ -1,1 +1,8 @@
 <app-tabla></app-tabla>
+<div class="row" *ngFor="let cliente of Clientes">
+    <div class="col">{{ cliente.nombre }}</div>
+    <div class="col">{{ cliente.apellido }}</div>
+    <div class="col">{{ cliente.email }}</div>
+    <div class="col">Modificar</div>
+    <div class="col">Borrar</div>
+</div>
