@@ -8,6 +8,8 @@ import { NavbarComponent } from './components/shared/navbar/navbar.component';
 import { ClientesComponent } from './components/clientes/clientes.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { TablaComponent } from './components/shared/tabla/tabla.component';
+import {FormUsuarioComponent} from "./components/form-usuario/form-usuario.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -15,12 +17,14 @@ import { TablaComponent } from './components/shared/tabla/tabla.component';
     NavbarComponent,
     ClientesComponent,
     UsuariosComponent,
-    TablaComponent
+    TablaComponent,
+    FormUsuarioComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
