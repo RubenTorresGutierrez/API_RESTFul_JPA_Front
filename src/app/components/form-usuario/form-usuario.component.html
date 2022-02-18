@@ -1,4 +1,4 @@
-<form class="m-auto">
+<form class="m-auto" (ngSubmit)="enviar()">
   <div class="mb-3">
     <label for="password" class="form-label">Username</label>
     <input [(ngModel)]="usuario.username" id="username" type="text" name="username">
