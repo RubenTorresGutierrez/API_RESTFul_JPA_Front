@@ -1,8 +1,18 @@
 <app-tabla></app-tabla>
-<div class="row" *ngFor="let cliente of Clientes">
-    <div class="col">{{ cliente.nombre }}</div>
-    <div class="col">{{ cliente.apellido }}</div>
-    <div class="col">{{ cliente.email }}</div>
-    <div class="col">Modificar</div>
-    <div class="col">Borrar</div>
+<div class="row text-center">
+    <div class="row" *ngFor="let cliente of Clientes">
+        <div class="col" *ngFor="let property of cliente | keyvalue">{{ property.value }}</div>
+        <!--<div class="col">{{ cliente.nombre }}</div>
+        <div class="col">{{ cliente.apellido }}</div>
+        <div class="col">{{ cliente.email }}</div>-->
+        <div class="col">
+            <button class="btn btn-secondary">Modificar</button>
+        </div>
+        <div class="col">
+            <button class="btn btn-danger" (click)="deleteClientById(cliente.id)">Borrar</button>
+        </div>
+    </div>
+    <div class="col-12">
+        <button class="btn btn-outline-primary">+ Añadir</button>
+    </div>
 </div>
