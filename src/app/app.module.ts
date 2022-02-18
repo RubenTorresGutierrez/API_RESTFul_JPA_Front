@@ -9,6 +9,7 @@ import { ClientesComponent } from './components/clientes/clientes.component';
 import { UsuariosComponent } from './components/usuarios/usuarios.component';
 import { TablaComponent } from './components/shared/tabla/tabla.component';
 import {FormUsuarioComponent} from "./components/form-usuario/form-usuario.component";
+import {FormsModule} from "@angular/forms";
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import {FormUsuarioComponent} from "./components/form-usuario/form-usuario.compo
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

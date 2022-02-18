@@ -14,7 +14,7 @@
     <td>{{usuario.email}}</td>
     <td>
       <button class="btn btn-danger me-2" (click)="borrar(usuario.id)">Borrar</button>
-      <button class="btn btn-primary">Modificar</button>
+      <a class="btn btn-primary" aria-current="page" [routerLink]="['/usuario/form',{id:usuario.id}]" routerLinkActive="active">Modificar</a>
     </td>
   </tr>
   </tbody>

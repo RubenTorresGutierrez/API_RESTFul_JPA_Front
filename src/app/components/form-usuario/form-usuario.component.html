@@ -1,1 +1,15 @@
-<p>form-usuario works!</p>
+<form class="m-auto">
+  <div class="mb-3">
+    <label for="password" class="form-label">Username</label>
+    <input [(ngModel)]="usuario.username" id="username" type="text" name="username">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input [(ngModel)]="usuario.password" id="password" type="password" name="password">
+  </div>
+  <div class="mb-3">
+    <label for="email" class="form-label">Email</label>
+    <input [(ngModel)]="usuario.email" type="text" id="email" name="email" >
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar</button>
+</form>
