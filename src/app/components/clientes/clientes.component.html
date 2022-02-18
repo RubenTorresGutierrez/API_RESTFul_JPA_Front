@@ -13,12 +13,12 @@
             <td>{{cliente.apellido}}</td>
             <td>{{cliente.email}}</td>
             <td>
-                <a class="btn btn-primary me-2">Modificar</a>
+                <a class="btn btn-primary me-2" [routerLink]="['/clientes/form',{id:cliente.id}]">Modificar</a>
                 <button class="btn btn-outline-danger" (click)="deleteClientById(cliente.id)">Borrar</button>
             </td>
         </tr>
         <tr>
-            <button class="btn btn-outline-primary mt-3">+ Añadir</button>
+            <a class="btn btn-outline-primary mt-3" [routerLink]="['/clientes/form']">+ Añadir</a>
         </tr>
     </tbody>
 </table>

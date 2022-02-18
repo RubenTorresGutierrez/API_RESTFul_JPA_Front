@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cliente, ClientesService } from "../../services/clientes.service";
-import {ActivatedRoute} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 
 @Component({
   selector: 'app-form-cliente',
@@ -18,9 +18,41 @@ export class FormClienteComponent implements OnInit {
   }
   id: string | null = null
 
-  constructor(private _clienteService: ClientesService, private ruta: ActivatedRoute) { }
+  constructor(private _clienteService: ClientesService, private ruta: ActivatedRoute, private router: Router) { 
+
+    this.init();
+
+  }
 
   ngOnInit(): void {
+  }
+
+  init() {
+
+    this.id = this.ruta.snapshot.paramMap.get('id');
+    if (this.id) {
+      this._clienteService.getClienteById(parseInt(this.id))
+        .subscribe( (data: any) => this.#cliente = data );
+    }
+
+  }
+
+  enviar(){
+
+    if(this.id)
+      this._clienteService.updateClienteById(this.#cliente);
+    else this._clienteService.postCliente(this.#cliente);
+    this.router.navigate(['clientes']);
+
+  }
+
+
+  // Getters
+
+  get Cliente(){
+
+    return this.#cliente;
+
   }
 
 }

@@ -32,10 +32,6 @@ export class FormUsuarioComponent implements OnInit {
     }
   }
 
-  comprobar() {
-    console.log(this.id)
-  }
-
   enviar(){
     if (this.id != null){
       this.usuarioService.update(this.#usuario)

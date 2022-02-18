@@ -27,7 +27,7 @@ export class UsuariosService {
   }
 
   getById(id:number): Observable<Object>{
-    return this.http.get(`${this.#urlEndPoint}/${id}`).pipe(map(respuesta => respuesta as Usuario))
+    return this.http.get(`${this.#urlEndPoint}/${id}`);
   }
 
   delete(id:number):void{

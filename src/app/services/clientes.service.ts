@@ -25,50 +25,69 @@ export class ClientesService {
   // Methods
 
   /**
-   * 
-   * @returns 
+   * Obtiene todos clientes de la base de datos 
    */
   getAllCliente(){
 
     this.http.get(this.#endpoint)
       .subscribe((data: any) => {
         this.#clientes = data;
-        console.log(this.#clientes[0]);
-        this.#clientes[0]
       });
 
   }
 
+  /**
+   * Obtiene un cliente mediante su id
+   * 
+   * @param id Identificador del cliente
+   * @returns El objeto con los datos del cliente
+   */
   getClienteById(id: number){
 
-    this.http.get(`${this.#endpoint}/${id}`)
+    return this.http.get(`${this.#endpoint}/${id}`);
+
+  }
+
+  /**
+   * Envia un JSON para que se cree un nuevo cliente 
+   * en la base de datos
+   * 
+   * @param cliente Objeto con los datos del cliente
+   */
+  postCliente(cliente: Cliente){
+
+    this.http.post(this.#endpoint, cliente)
       .subscribe((data: any) => {
-        this.#clientes = data;
-        console.log(this.#clientes);        
+        this.getAllCliente();
+      }, (error) =>{
+        console.log(error);
       });
 
   }
 
-  postCliente(id: number){
+  /**
+   * Envia un JSON para que se actualicen los datos de 
+   * un cliente en la base de datos
+   * 
+   * @param cliente Objeto con los datos del cliente
+   */
+  updateClienteById(cliente: Cliente){
 
-    this.http.get(`${this.#endpoint}/${id}`)
+    this.http.put(`${this.#endpoint}/${cliente.id}`, cliente)
       .subscribe((data: any) => {
-        this.#clientes = data;
-        console.log(this.#clientes);        
+        this.getAllCliente();
+      }, (error) =>{
+        console.log(error);
       });
 
   }
 
-  updateClienteById(id: number){
-
-    this.http.get(`${this.#endpoint}/${id}`)
-      .subscribe((data: any) => {
-        this.#clientes = data;
-        console.log(this.#clientes);        
-      });
-
-  }
-
+  /**
+   * Elimina un cliente de la base de datos pasándole 
+   * su identificador
+   * 
+   * @param id Identificador del cliente
+   */
   deleteClienteById(id: number){
     
     this.http.delete(`${this.#endpoint}/${id}`)
