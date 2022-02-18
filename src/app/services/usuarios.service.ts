@@ -7,7 +7,7 @@ export interface Usuario{
   username:string,
   password:string,
   email:string,
-  createdAt?:Date
+  createdAt?:Date,
   activo?:boolean
 }
 

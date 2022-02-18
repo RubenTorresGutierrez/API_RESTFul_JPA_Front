@@ -3,9 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { ActivatedRoute } from "@angular/router";
 
 // Services
-import { ClientesService } from '../../services/clientes.service';
-// Components
-import { TablaComponent } from '../shared/tabla/tabla.component';
+import { Cliente, ClientesService } from '../../services/clientes.service';
 
 @Component({
   selector: 'app-clientes',

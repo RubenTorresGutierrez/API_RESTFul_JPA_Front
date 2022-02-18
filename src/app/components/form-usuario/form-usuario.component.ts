@@ -9,14 +9,15 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class FormUsuarioComponent implements OnInit {
 
+  // Attributes
   #usuario: Usuario = {
     id:null,
     username:"",
     password:"",
-    email:"",
+    email:""
   }
-
   id: string | null = null
+
   constructor(private usuarioService: UsuariosService, private ruta: ActivatedRoute) {
     this.init()
   }
@@ -31,9 +32,6 @@ export class FormUsuarioComponent implements OnInit {
     }
   }
 
-  get usuario(){
-    return this.#usuario
-  }
   comprobar() {
     console.log(this.id)
   }
@@ -46,4 +44,12 @@ export class FormUsuarioComponent implements OnInit {
       this.usuarioService.add(this.#usuario)
     }
   }
+
+
+  // Getters
+
+  get usuario(){
+    return this.#usuario
+  }
+
 }

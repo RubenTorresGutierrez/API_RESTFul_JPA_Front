@@ -1,5 +1,14 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
+
+// Interfaces
+export interface Cliente{
+  id: number | null;
+  nombre: string,
+  apellido: string,
+  email: string,
+  createdAt?: Date
+}
 
 @Injectable({
   providedIn: 'root'
